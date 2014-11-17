@@ -7,16 +7,28 @@
 //
 
 #import "AppDelegate.h"
-
+#import "LoginViewController.h"
+#import "UserInfoModel.h"
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [self setWindow:[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]];
+    [[self window] setTintColor:[UIColor purpleColor]];
+    [self insertInitialUser];
+    if ([UserInfoModel shareUserInfoMode].token) {
+        
+        [self resetRootViewControllerAfterLogined];
+        
+    }else{
+    
+        LoginViewController *login = [[LoginViewController alloc]init];
+        
+        [[self window] setRootViewController:login];
+    }
     return YES;
 }
 
@@ -74,7 +86,7 @@
     // Create the coordinator and store
     
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"bakerySystem.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"bakerySystem.xml"];
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
@@ -92,7 +104,6 @@
     
     return _persistentStoreCoordinator;
 }
-
 
 - (NSManagedObjectContext *)managedObjectContext {
     // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
@@ -122,6 +133,18 @@
             abort();
         }
     }
+}
+
+-(void)insertInitialUser
+{
+    NSObject *initialUser = [NSEntityDescription insertNewObjectForEntityForName:@"Admin" inManagedObjectContext:self.managedObjectContext];
+    [initialUser setValue:@"User00" forKey:@"admin"];
+    [initialUser setValue:@"secret" forKey:@"password"];
+    
+}
+-(void)resetRootViewControllerAfterLogined
+{
+    
 }
 
 @end
