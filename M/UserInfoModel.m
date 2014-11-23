@@ -50,12 +50,10 @@ UserInfoModel *userInfo = nil;
     NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
     [fetch setEntity: entity];
     NSArray *result = [context executeFetchRequest:fetch error:nil];
-    BOOL flag;
-    if (result!=nil) {
-        flag=true;
-    }else
-        flag = false;
-    
+    if(result != nil)
+    completedBlock(YES, userInfo,[[NSError alloc]init]);
+    else
+        completedBlock(NO, userInfo,[[NSError alloc]init]);
 }
 -(void)userLoginWithAccount:(NSString *)_account andPassword:(NSString *)_password andCompletedBlock:(UserLoginBlock)completedBlock
 {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EAFBF961A1C0237005C4296 /* addSubscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAFBF951A1C0237005C4296 /* addSubscriber.m */; };
 		2EBA8FA61A13170A00D22F2C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA8FA51A13170A00D22F2C /* main.m */; };
 		2EBA8FA91A13170B00D22F2C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA8FA81A13170B00D22F2C /* AppDelegate.m */; };
 		2EBA8FAC1A13170B00D22F2C /* bakerySystem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA8FAA1A13170B00D22F2C /* bakerySystem.xcdatamodeld */; };
@@ -15,11 +16,6 @@
 		2EBA8FB41A13170B00D22F2C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA8FB31A13170B00D22F2C /* Images.xcassets */; };
 		2EBA8FB71A13170B00D22F2C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA8FB51A13170B00D22F2C /* LaunchScreen.xib */; };
 		2EBA8FC31A13170B00D22F2C /* bakerySystemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA8FC21A13170B00D22F2C /* bakerySystemTests.m */; };
-		2EBA8FF91A13214A00D22F2C /* WTAContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA8FE41A13214A00D22F2C /* WTAContentViewController.m */; };
-		2EBA8FFA1A13214A00D22F2C /* WTAContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA8FE51A13214A00D22F2C /* WTAContentViewController.xib */; };
-		2EBA8FFB1A13214A00D22F2C /* WTALeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA8FE71A13214A00D22F2C /* WTALeftViewController.m */; };
-		2EBA8FFC1A13214A00D22F2C /* WTALeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA8FE81A13214A00D22F2C /* WTALeftViewController.xib */; };
-		2EBA8FFD1A13214A00D22F2C /* WTAZoomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA8FEA1A13214A00D22F2C /* WTAZoomNavigationController.m */; };
 		2EBA90051A1524A800D22F2C /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA90041A1524A800D22F2C /* LoginView.xib */; };
 		2EBA90081A15253700D22F2C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA90071A15253700D22F2C /* LoginViewController.m */; };
 		2EBA900C1A15363700D22F2C /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA900B1A15363700D22F2C /* UserInfoModel.m */; };
@@ -29,8 +25,6 @@
 		2EBA90191A15640200D22F2C /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA90181A15640200D22F2C /* Ingredient.m */; };
 		2EBA901C1A17B1E500D22F2C /* Subscribers.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA901B1A17B1E500D22F2C /* Subscribers.m */; };
 		2EBA901F1A17B21E00D22F2C /* Recipes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA901E1A17B21E00D22F2C /* Recipes.m */; };
-		2EBA90211A17B25400D22F2C /* SubscribersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA90201A17B25400D22F2C /* SubscribersView.xib */; };
-		2EBA90231A17B27500D22F2C /* RecrpesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA90221A17B27400D22F2C /* RecrpesView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E20D1621A1E6DE5004BF7B2 /* bakerySystem-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bakerySystem-Bridging-Header.h"; sourceTree = "<group>"; };
+		2EAFBF941A1C0237005C4296 /* addSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = addSubscriber.h; path = bakerySystem/addSubscriber.h; sourceTree = SOURCE_ROOT; };
+		2EAFBF951A1C0237005C4296 /* addSubscriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = addSubscriber.m; path = bakerySystem/addSubscriber.m; sourceTree = SOURCE_ROOT; };
 		2EBA8FA01A13170A00D22F2C /* bakerySystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bakerySystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EBA8FA41A13170A00D22F2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EBA8FA51A13170A00D22F2C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -58,17 +55,9 @@
 		2EBA8FBC1A13170B00D22F2C /* bakerySystemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bakerySystemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EBA8FC11A13170B00D22F2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EBA8FC21A13170B00D22F2C /* bakerySystemTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bakerySystemTests.m; sourceTree = "<group>"; };
-		2EBA8FE31A13214A00D22F2C /* WTAContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTAContentViewController.h; sourceTree = "<group>"; };
-		2EBA8FE41A13214A00D22F2C /* WTAContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTAContentViewController.m; sourceTree = "<group>"; };
-		2EBA8FE51A13214A00D22F2C /* WTAContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTAContentViewController.xib; sourceTree = "<group>"; };
-		2EBA8FE61A13214A00D22F2C /* WTALeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTALeftViewController.h; sourceTree = "<group>"; };
-		2EBA8FE71A13214A00D22F2C /* WTALeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTALeftViewController.m; sourceTree = "<group>"; };
-		2EBA8FE81A13214A00D22F2C /* WTALeftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTALeftViewController.xib; sourceTree = "<group>"; };
-		2EBA8FE91A13214A00D22F2C /* WTAZoomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTAZoomNavigationController.h; sourceTree = "<group>"; };
-		2EBA8FEA1A13214A00D22F2C /* WTAZoomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTAZoomNavigationController.m; sourceTree = "<group>"; };
-		2EBA90041A1524A800D22F2C /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
-		2EBA90061A15253700D22F2C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		2EBA90071A15253700D22F2C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		2EBA90041A1524A800D22F2C /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginView.xib; path = ../WTAZoomNavigationController/LoginView.xib; sourceTree = "<group>"; };
+		2EBA90061A15253700D22F2C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../WTAZoomNavigationController/LoginViewController.h; sourceTree = "<group>"; };
+		2EBA90071A15253700D22F2C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../WTAZoomNavigationController/LoginViewController.m; sourceTree = "<group>"; };
 		2EBA900A1A15363700D22F2C /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoModel.h; path = M/UserInfoModel.h; sourceTree = "<group>"; };
 		2EBA900B1A15363700D22F2C /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoModel.m; path = M/UserInfoModel.m; sourceTree = "<group>"; };
 		2EBA900D1A1539D300D22F2C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -80,12 +69,10 @@
 		2EBA90151A15640200D22F2C /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recipe.m; path = bakerySystem/Recipe.m; sourceTree = "<group>"; };
 		2EBA90171A15640200D22F2C /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ingredient.h; path = bakerySystem/Ingredient.h; sourceTree = "<group>"; };
 		2EBA90181A15640200D22F2C /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ingredient.m; path = bakerySystem/Ingredient.m; sourceTree = "<group>"; };
-		2EBA901A1A17B1E500D22F2C /* Subscribers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subscribers.h; sourceTree = "<group>"; };
-		2EBA901B1A17B1E500D22F2C /* Subscribers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subscribers.m; sourceTree = "<group>"; };
-		2EBA901D1A17B21E00D22F2C /* Recipes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipes.h; sourceTree = "<group>"; };
-		2EBA901E1A17B21E00D22F2C /* Recipes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipes.m; sourceTree = "<group>"; };
-		2EBA90201A17B25400D22F2C /* SubscribersView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubscribersView.xib; sourceTree = "<group>"; };
-		2EBA90221A17B27400D22F2C /* RecrpesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecrpesView.xib; sourceTree = "<group>"; };
+		2EBA901A1A17B1E500D22F2C /* Subscribers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Subscribers.h; path = ../WTAZoomNavigationController/Subscribers.h; sourceTree = "<group>"; };
+		2EBA901B1A17B1E500D22F2C /* Subscribers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Subscribers.m; path = ../WTAZoomNavigationController/Subscribers.m; sourceTree = "<group>"; };
+		2EBA901D1A17B21E00D22F2C /* Recipes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recipes.h; path = ../WTAZoomNavigationController/Recipes.h; sourceTree = "<group>"; };
+		2EBA901E1A17B21E00D22F2C /* Recipes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recipes.m; path = ../WTAZoomNavigationController/Recipes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +96,6 @@
 		2EBA8F971A13170A00D22F2C = {
 			isa = PBXGroup;
 			children = (
-				2EBA8FCC1A13214A00D22F2C /* WTAZoomNavigationController */,
 				2EBA90091A15348700D22F2C /* M */,
 				2EBA8FA21A13170A00D22F2C /* bakerySystem */,
 				2EBA8FBF1A13170B00D22F2C /* bakerySystemTests */,
@@ -129,6 +115,15 @@
 		2EBA8FA21A13170A00D22F2C /* bakerySystem */ = {
 			isa = PBXGroup;
 			children = (
+				2EBA90061A15253700D22F2C /* LoginViewController.h */,
+				2EBA90071A15253700D22F2C /* LoginViewController.m */,
+				2EBA90041A1524A800D22F2C /* LoginView.xib */,
+				2EBA901A1A17B1E500D22F2C /* Subscribers.h */,
+				2EBA901B1A17B1E500D22F2C /* Subscribers.m */,
+				2EBA901D1A17B21E00D22F2C /* Recipes.h */,
+				2EBA901E1A17B21E00D22F2C /* Recipes.m */,
+				2EAFBF941A1C0237005C4296 /* addSubscriber.h */,
+				2EAFBF951A1C0237005C4296 /* addSubscriber.m */,
 				2EBA8FA71A13170A00D22F2C /* AppDelegate.h */,
 				2EBA8FA81A13170B00D22F2C /* AppDelegate.m */,
 				2EBA8FAD1A13170B00D22F2C /* ViewController.h */,
@@ -139,6 +134,7 @@
 				2EBA8FAA1A13170B00D22F2C /* bakerySystem.xcdatamodeld */,
 				2EBA8FA31A13170A00D22F2C /* Supporting Files */,
 				2EBA900D1A1539D300D22F2C /* PrefixHeader.pch */,
+				2E20D1621A1E6DE5004BF7B2 /* bakerySystem-Bridging-Header.h */,
 			);
 			path = bakerySystem;
 			sourceTree = "<group>";
@@ -167,30 +163,6 @@
 				2EBA8FC11A13170B00D22F2C /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		2EBA8FCC1A13214A00D22F2C /* WTAZoomNavigationController */ = {
-			isa = PBXGroup;
-			children = (
-				2EBA8FE31A13214A00D22F2C /* WTAContentViewController.h */,
-				2EBA8FE41A13214A00D22F2C /* WTAContentViewController.m */,
-				2EBA8FE51A13214A00D22F2C /* WTAContentViewController.xib */,
-				2EBA8FE61A13214A00D22F2C /* WTALeftViewController.h */,
-				2EBA8FE71A13214A00D22F2C /* WTALeftViewController.m */,
-				2EBA8FE81A13214A00D22F2C /* WTALeftViewController.xib */,
-				2EBA8FE91A13214A00D22F2C /* WTAZoomNavigationController.h */,
-				2EBA8FEA1A13214A00D22F2C /* WTAZoomNavigationController.m */,
-				2EBA90061A15253700D22F2C /* LoginViewController.h */,
-				2EBA90071A15253700D22F2C /* LoginViewController.m */,
-				2EBA90041A1524A800D22F2C /* LoginView.xib */,
-				2EBA901A1A17B1E500D22F2C /* Subscribers.h */,
-				2EBA901B1A17B1E500D22F2C /* Subscribers.m */,
-				2EBA90201A17B25400D22F2C /* SubscribersView.xib */,
-				2EBA901D1A17B21E00D22F2C /* Recipes.h */,
-				2EBA901E1A17B21E00D22F2C /* Recipes.m */,
-				2EBA90221A17B27400D22F2C /* RecrpesView.xib */,
-			);
-			path = WTAZoomNavigationController;
 			sourceTree = "<group>";
 		};
 		2EBA90091A15348700D22F2C /* M */ = {
@@ -293,11 +265,7 @@
 				2EBA8FB21A13170B00D22F2C /* Main.storyboard in Resources */,
 				2EBA8FB71A13170B00D22F2C /* LaunchScreen.xib in Resources */,
 				2EBA90051A1524A800D22F2C /* LoginView.xib in Resources */,
-				2EBA90211A17B25400D22F2C /* SubscribersView.xib in Resources */,
 				2EBA8FB41A13170B00D22F2C /* Images.xcassets in Resources */,
-				2EBA8FFC1A13214A00D22F2C /* WTALeftViewController.xib in Resources */,
-				2EBA8FFA1A13214A00D22F2C /* WTAContentViewController.xib in Resources */,
-				2EBA90231A17B27500D22F2C /* RecrpesView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,10 +283,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EAFBF961A1C0237005C4296 /* addSubscriber.m in Sources */,
 				2EBA8FAC1A13170B00D22F2C /* bakerySystem.xcdatamodeld in Sources */,
-				2EBA8FF91A13214A00D22F2C /* WTAContentViewController.m in Sources */,
 				2EBA900C1A15363700D22F2C /* UserInfoModel.m in Sources */,
-				2EBA8FFD1A13214A00D22F2C /* WTAZoomNavigationController.m in Sources */,
 				2EBA90081A15253700D22F2C /* LoginViewController.m in Sources */,
 				2EBA8FA91A13170B00D22F2C /* AppDelegate.m in Sources */,
 				2EBA90101A15640100D22F2C /* bakerySystem.m in Sources */,
@@ -328,7 +295,6 @@
 				2EBA901F1A17B21E00D22F2C /* Recipes.m in Sources */,
 				2EBA901C1A17B1E500D22F2C /* Subscribers.m in Sources */,
 				2EBA8FAF1A13170B00D22F2C /* ViewController.m in Sources */,
-				2EBA8FFB1A13214A00D22F2C /* WTALeftViewController.m in Sources */,
 				2EBA8FA61A13170A00D22F2C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,9 +417,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = bakerySystem/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "bakerySystem/bakerySystem-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -461,9 +431,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = bakerySystem/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "bakerySystem/bakerySystem-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -520,6 +493,7 @@
 				2EBA8FC81A13170B00D22F2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2EBA8FC91A13170B00D22F2C /* Build configuration list for PBXNativeTarget "bakerySystemTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +502,7 @@
 				2EBA8FCB1A13170B00D22F2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

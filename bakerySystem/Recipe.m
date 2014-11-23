@@ -12,5 +12,6 @@
 @implementation Recipe
 
 @dynamic name;
+@dynamic firstN;
 
 @end

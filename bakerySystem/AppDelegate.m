@@ -9,29 +9,18 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "UserInfoModel.h"
+#import "Subscribers.h"
+#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [self setWindow:[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]];
-    [[self window] setTintColor:[UIColor purpleColor]];
-    [self insertInitialUser];
-    if ([UserInfoModel shareUserInfoMode].token) {
-        
-        [self resetRootViewControllerAfterLogined];
-        
-    }else{
-    
-        LoginViewController *login = [[LoginViewController alloc]init];
-        
-        [[self window] setRootViewController:login];
-    }
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     return YES;
 }
-
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -86,7 +75,7 @@
     // Create the coordinator and store
     
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"bakerySystem.xml"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"bakerySystem.sqlite"];
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
@@ -142,9 +131,18 @@
     [initialUser setValue:@"secret" forKey:@"password"];
     
 }
--(void)resetRootViewControllerAfterLogined
-{
-    
-}
+//-(void)resetRootViewControllerAfterLogined
+//{
+//    WTALeftViewController *leftViewController = [WTALeftViewController new];
+//    WTAZoomNavigationController *zoomNavigationController = [WTAZoomNavigationController new];
+//    [zoomNavigationController setSpringAnimationOn:YES];
+//    [zoomNavigationController setLeftViewController:leftViewController];
+//    
+//    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+//    [imageView setContentMode:UIViewContentModeCenter];
+//    [zoomNavigationController setBackgroundView:imageView];
+//    [[self window] setRootViewController:zoomNavigationController];
+//    
+//}
 
 @end

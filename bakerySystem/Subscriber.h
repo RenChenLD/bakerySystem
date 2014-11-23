@@ -14,10 +14,11 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * street;
-@property (nonatomic, retain) NSNumber * zip;
+@property (nonatomic, retain) NSString * zip;
 @property (nonatomic, retain) NSString * email;
-@property (nonatomic, retain) NSNumber * phone;
+@property (nonatomic, retain) NSString * phone;
 @property (nonatomic, retain) NSString * twitter;
 @property (nonatomic, retain) NSString * facebook;
+@property (nonatomic, retain) NSString * firstN;
 
 @end

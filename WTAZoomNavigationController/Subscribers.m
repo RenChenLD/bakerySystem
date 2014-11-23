@@ -7,55 +7,205 @@
 //
 
 #import "Subscribers.h"
-@interface Subscribers()
-@property (nonatomic,strong)IBOutlet UITableView *tableView;
+#import "Subscriber.h"
+#import "addSubscriber.h"
+#import "Recipe.h"
+@interface Subscribers()<NSFetchedResultsControllerDelegate>
 @end
 @implementation Subscribers
-- (id)initWithTableView:(UITableView*)tableView
+-(void) viewWillAppear:(BOOL)animated
 {
-    self = [super init];
-    if (self) {
-        self.tableView = tableView;
-        self.tableView.dataSource = self;
+    [super viewWillAppear:animated];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+    [self.tableView reloadData];
+//    });
+}
+-(void) viewDidLoad
+{
+    UIApplication *application = [UIApplication sharedApplication];
+    id delegate = application.delegate;
+    self.managedObjectContext = [delegate managedObjectContext];
+    self.fetchedResultsController.delegate = self;
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+        NSLog(@"SubTable");
+        NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:NSStringFromClass([Subscriber class])];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+        
+        //把排序和分组规则添加到请求中
+        [request setSortDescriptors:@[sortDescriptor]];
+        
+        //把请求的结果转换成适合tableView显示的数据
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"firstN" cacheName:nil];
+        
+    
+    //执行fetchedResultsController
+    NSError *error;
+    if ([self.fetchedResultsController performFetch:&error]) {
+        NSLog(@"%@", [error localizedDescription]);
     }
-    return self;
 }
--(void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
-{
-    _fetchedResultsController = fetchedResultsController;
-    fetchedResultsController.delegate = self;
-    [fetchedResultsController performFetch: NULL];
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    NSString *msg = @"Subscribers";
+    UIViewController *send = segue.destinationViewController;
+    if([send respondsToSelector:@selector(setData:)])
+    {
+        [send setValue:msg forKey:@"Data"];
+    }
+    //参数sender是点击的对应的cell
+    //判断sender是否为TableViewCell的对象
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        //做一个类型的转换
+        UITableViewCell *cell = (UITableViewCell *)sender;
+        
+        //通过tableView获取cell对应的索引，然后通过索引获取实体对象
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        
+        //用frc通过indexPath来获取Person
+        Subscriber *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        //通过KVC把参数传入目的控制器
+        [send setValue:person forKey:@"person"];
+    }
+
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.fetchedResultsController.sections.count;
+    //我们的数据中有多少个section, fetchedResultsController中的sections方法可以以数组的形式返回所有的section
+    //sections数组中存的是每个section的数据信息
+    NSArray *sections = [self.fetchedResultsController sections];
+    return sections.count;
 }
 
-- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)sectionIndex
+//通过获取section中的信息来获取header和每个secion中有多少数据
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    id<NSFetchedResultsSectionInfo> section = self.fetchedResultsController.sections[sectionIndex];
-    return section.numberOfObjects;
+    NSArray *sections = [self.fetchedResultsController  sections];
+    //获取对应section的sectionInfo
+    id<NSFetchedResultsSectionInfo> sectionInfo = sections[section];
+    
+    //返回header
+    return [sectionInfo name];
 }
 
-- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    id cell = [tableView dequeueReusableCellWithIdentifier:self.reuseIdentifier forIndexPath:indexPath];
-    [self.delegate configureCell:cell withObject:object];
+    
+    NSArray *sections = [self.fetchedResultsController sections];
+    id<NSFetchedResultsSectionInfo> sectionInfo = sections[section];
+    
+    //返回每个section中的元素个数
+    return [sectionInfo numberOfObjects];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifer = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
+    
+    //获取实体对象
+        Subscriber *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
+   
+    
+    
+    cell.textLabel.text = person.name;
+    
+    // Configure the cell...
+    
     return cell;
 }
-
-- (BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.delegate deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        //通过coreData删除对象
+        //通过indexPath获取我们要删除的实体
+        Subscriber * person = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            
+        //通过上下文移除实体
+        [self.managedObjectContext  deleteObject:person];
+        
+        NSError *error;
+        if ([self.managedObjectContext save:&error]) {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+        [self.tableView reloadData];
+        
     }
 }
 
+
+//当CoreData的数据正在发生改变是，FRC产生的回调
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+    
+}
+
+//分区改变状况
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            default:
+            break;
+    }
+}
+
+//数据改变状况
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    UITableView *tableView = self.tableView;
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            //让tableView在newIndexPath位置插入一个cell
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            //让tableView刷新indexPath位置上的cell
+            [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+//当CoreData的数据完成改变是，FRC产生的回调
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
+}
 
 @end

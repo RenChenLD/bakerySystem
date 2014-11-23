@@ -13,5 +13,6 @@
 @interface Recipe : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * firstN;
 
 @end

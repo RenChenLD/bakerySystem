@@ -18,5 +18,6 @@
 @dynamic phone;
 @dynamic twitter;
 @dynamic facebook;
+@dynamic firstN;
 
 @end

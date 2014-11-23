@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface Recipes : UIViewController
-
+#import <CoreData/CoreData.h>
+@interface Recipes : UITableViewController< NSFetchedResultsControllerDelegate>
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
+@property (nonatomic, copy) NSString* reuseIdentifier;
 @end

@@ -8,19 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-@protocol FetchedResultsControllerDataSourceDelegate
-
-- (void)configureCell:(id)cell withObject:(id)object;
-- (void)deleteObject:(id)object;
-
-@end
-@interface Subscribers : UIViewController<FetchedResultsControllerDataSourceDelegate, UITableViewDataSource>
-
+@interface Subscribers : UITableViewController<NSFetchedResultsControllerDelegate>
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
-@property (nonatomic, weak) id<FetchedResultsControllerDataSourceDelegate> delegate;
 @property (nonatomic, copy) NSString* reuseIdentifier;
 
-- (id)initWithTableView:(UITableView*)tableView;
-- (id)selectedItem;
-
 @end
+
+
