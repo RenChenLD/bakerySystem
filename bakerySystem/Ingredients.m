@@ -1,23 +1,15 @@
 //
-//  UIViewController+Recepes.m
+//  UITableViewController+Ingredient.m
 //  bakerySystem
 //
-//  Created by 陈仁 on 11/15/14.
+//  Created by 陈仁 on 11/23/14.
 //  Copyright (c) 2014 陈仁. All rights reserved.
 //
 
-#import "Recipes.h"
-#import "Recipe.h"
-
-
-@interface Recipes () <NSFetchedResultsControllerDelegate>
-
-
-@end
-
-
-@implementation Recipes
-
+#import "Ingredients.h"
+#import "Ingredient.h"
+@implementation Ingredients
+@synthesize recipeName;
 -(void) viewDidLoad
 {
     UIApplication *application = [UIApplication sharedApplication];
@@ -25,16 +17,15 @@
     self.managedObjectContext = [delegate managedObjectContext];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     NSLog(@"RecipeTable");
-    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:NSStringFromClass([Recipe class])];
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:NSStringFromClass([Ingredient class])];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    
     //把排序和分组规则添加到请求中
     [request setSortDescriptors:@[sortDescriptor]];
     
     //把请求的结果转换成适合tableView显示的数据
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"firstN" cacheName:nil];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"type" cacheName:nil];
     self.fetchedResultsController.delegate = self;
-
+    
     
     //执行fetchedResultsController
     NSError *error;
@@ -44,28 +35,26 @@
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //参数sender是点击的对应的cell
-    //判断sender是否为TableViewCell的对象
-    
-    if ([[segue identifier] isEqualToString:@"recipeCellTap"]) {
-        //做一个类型的转换
-        //        UITableViewCell *cell = (UITableViewCell *)sender;
-        
-        //通过tableView获取cell对应的索引，然后通过索引获取实体对象
+    if([[segue identifier] isEqualToString:@"addIngredient"])
+    {
+        UIViewController *nextView = segue.destinationViewController;
+        [nextView setValue:recipeName forKey:@"type"];
+    }
+    if ([[segue identifier] isEqualToString:@"ingredientCellTap"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
         //用frc通过indexPath来获取Person
-        Recipe *recipe = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        Ingredient *ingredient = [self.fetchedResultsController objectAtIndexPath:indexPath];
         UIViewController *nextView = segue.destinationViewController;
         //通过KVC把参数传入目的控制器
-        [nextView setValue:recipe.name forKey:@"recipeName"];
+        [nextView setValue:ingredient forKey:@"ingredient"];
     }
-
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"recipeCellTap" sender:indexPath];
-
+    [self performSegueWithIdentifier:@"ingredientCellTap" sender:indexPath];
+    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -105,12 +94,14 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
     
     //获取实体对象
-    Recipe *recipe = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Ingredient *ingredient = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     
     
-    cell.textLabel.text = recipe.name;
-    
+    cell.textLabel.text = ingredient.name;
+    NSString *a =[NSString stringWithFormat:@"%@%@%@", ingredient.amount, @"  " ,ingredient.measure_unit];
+
+    cell.detailTextLabel.text =a;
     // Configure the cell...
     
     return cell;
@@ -127,10 +118,10 @@
         //通过coreData删除对象
         //通过indexPath获取我们要删除的实体
         //        if ([switchB.titleLabel.text isEqualToString:@"Subscribers"]) {
-        Recipe * person = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        Recipe * recipe = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
         //通过上下文移除实体
-        [self.managedObjectContext  deleteObject:person];
+        [self.managedObjectContext  deleteObject:recipe];
         
         NSError *error;
         if ([self.managedObjectContext save:&error]) {

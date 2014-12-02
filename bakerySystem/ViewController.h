@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 @interface ViewController : UIViewController
-@property(strong, nonatomic) IBOutlet UIButton *switchB;
 @end
 

@@ -8,24 +8,15 @@
 
 #import "Subscribers.h"
 #import "Subscriber.h"
-#import "addSubscriber.h"
-#import "Recipe.h"
 @interface Subscribers()<NSFetchedResultsControllerDelegate>
 @end
 @implementation Subscribers
--(void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-//    dispatch_async(dispatch_get_main_queue(), ^{
-    [self.tableView reloadData];
-//    });
-}
+
 -(void) viewDidLoad
 {
     UIApplication *application = [UIApplication sharedApplication];
     id delegate = application.delegate;
     self.managedObjectContext = [delegate managedObjectContext];
-    self.fetchedResultsController.delegate = self;
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
         NSLog(@"SubTable");
@@ -38,7 +29,8 @@
         //把请求的结果转换成适合tableView显示的数据
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"firstN" cacheName:nil];
         
-    
+    self.fetchedResultsController.delegate = self;
+
     //执行fetchedResultsController
     NSError *error;
     if ([self.fetchedResultsController performFetch:&error]) {
@@ -46,27 +38,29 @@
     }
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    NSString *msg = @"Subscribers";
-    UIViewController *send = segue.destinationViewController;
-    if([send respondsToSelector:@selector(setData:)])
-    {
-        [send setValue:msg forKey:@"Data"];
-    }
     //参数sender是点击的对应的cell
     //判断sender是否为TableViewCell的对象
-    if ([sender isKindOfClass:[UITableViewCell class]]) {
+
+    if ([[segue identifier] isEqualToString:@"cellTap"]) {
         //做一个类型的转换
-        UITableViewCell *cell = (UITableViewCell *)sender;
+//        UITableViewCell *cell = (UITableViewCell *)sender;
         
         //通过tableView获取cell对应的索引，然后通过索引获取实体对象
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
         //用frc通过indexPath来获取Person
         Subscriber *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        
+        UIViewController *nextView = segue.destinationViewController;
         //通过KVC把参数传入目的控制器
-        [send setValue:person forKey:@"person"];
+        [nextView setValue:person forKey:@"person"];
     }
+
+
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"cellTap" sender:indexPath];
 
 }
 
@@ -106,14 +100,15 @@
 {
     static NSString *cellIdentifer = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
-    
+    if(cell == nil)
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifer];
     //获取实体对象
-        Subscriber *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Subscriber *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
    
     
     
     cell.textLabel.text = person.name;
-    
+    cell.detailTextLabel.text = person.phone;
     // Configure the cell...
     
     return cell;
@@ -142,7 +137,10 @@
         
     }
 }
-
+//-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+//}
 
 //当CoreData的数据正在发生改变是，FRC产生的回调
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {

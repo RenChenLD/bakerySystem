@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E27129C1A22949100769DD4 /* Ingredients.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E27129B1A22949100769DD4 /* Ingredients.m */; };
 		2EAFBF961A1C0237005C4296 /* addSubscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAFBF951A1C0237005C4296 /* addSubscriber.m */; };
 		2EBA8FA61A13170A00D22F2C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA8FA51A13170A00D22F2C /* main.m */; };
 		2EBA8FA91A13170B00D22F2C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA8FA81A13170B00D22F2C /* AppDelegate.m */; };
@@ -25,6 +26,8 @@
 		2EBA90191A15640200D22F2C /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA90181A15640200D22F2C /* Ingredient.m */; };
 		2EBA901C1A17B1E500D22F2C /* Subscribers.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA901B1A17B1E500D22F2C /* Subscribers.m */; };
 		2EBA901F1A17B21E00D22F2C /* Recipes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA901E1A17B21E00D22F2C /* Recipes.m */; };
+		2EF1DC311A2254290096881F /* editRecipes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1DC301A2254290096881F /* editRecipes.m */; };
+		2EF1DC341A22714D0096881F /* addRecipeIngredients.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1DC331A22714D0096881F /* addRecipeIngredients.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		2E20D1621A1E6DE5004BF7B2 /* bakerySystem-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bakerySystem-Bridging-Header.h"; sourceTree = "<group>"; };
+		2E27129A1A22949100769DD4 /* Ingredients.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredients.h; sourceTree = "<group>"; };
+		2E27129B1A22949100769DD4 /* Ingredients.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredients.m; sourceTree = "<group>"; };
 		2EAFBF941A1C0237005C4296 /* addSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = addSubscriber.h; path = bakerySystem/addSubscriber.h; sourceTree = SOURCE_ROOT; };
 		2EAFBF951A1C0237005C4296 /* addSubscriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = addSubscriber.m; path = bakerySystem/addSubscriber.m; sourceTree = SOURCE_ROOT; };
 		2EBA8FA01A13170A00D22F2C /* bakerySystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bakerySystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +78,10 @@
 		2EBA901B1A17B1E500D22F2C /* Subscribers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Subscribers.m; path = ../WTAZoomNavigationController/Subscribers.m; sourceTree = "<group>"; };
 		2EBA901D1A17B21E00D22F2C /* Recipes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recipes.h; path = ../WTAZoomNavigationController/Recipes.h; sourceTree = "<group>"; };
 		2EBA901E1A17B21E00D22F2C /* Recipes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recipes.m; path = ../WTAZoomNavigationController/Recipes.m; sourceTree = "<group>"; };
+		2EF1DC2F1A2254290096881F /* editRecipes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editRecipes.h; sourceTree = "<group>"; };
+		2EF1DC301A2254290096881F /* editRecipes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = editRecipes.m; sourceTree = "<group>"; };
+		2EF1DC321A22714D0096881F /* addRecipeIngredients.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addRecipeIngredients.h; sourceTree = "<group>"; };
+		2EF1DC331A22714D0096881F /* addRecipeIngredients.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addRecipeIngredients.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +131,14 @@
 				2EBA901B1A17B1E500D22F2C /* Subscribers.m */,
 				2EBA901D1A17B21E00D22F2C /* Recipes.h */,
 				2EBA901E1A17B21E00D22F2C /* Recipes.m */,
+				2E27129A1A22949100769DD4 /* Ingredients.h */,
+				2E27129B1A22949100769DD4 /* Ingredients.m */,
 				2EAFBF941A1C0237005C4296 /* addSubscriber.h */,
 				2EAFBF951A1C0237005C4296 /* addSubscriber.m */,
+				2EF1DC2F1A2254290096881F /* editRecipes.h */,
+				2EF1DC301A2254290096881F /* editRecipes.m */,
+				2EF1DC321A22714D0096881F /* addRecipeIngredients.h */,
+				2EF1DC331A22714D0096881F /* addRecipeIngredients.m */,
 				2EBA8FA71A13170A00D22F2C /* AppDelegate.h */,
 				2EBA8FA81A13170B00D22F2C /* AppDelegate.m */,
 				2EBA8FAD1A13170B00D22F2C /* ViewController.h */,
@@ -283,18 +298,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF1DC311A2254290096881F /* editRecipes.m in Sources */,
 				2EAFBF961A1C0237005C4296 /* addSubscriber.m in Sources */,
 				2EBA8FAC1A13170B00D22F2C /* bakerySystem.xcdatamodeld in Sources */,
 				2EBA900C1A15363700D22F2C /* UserInfoModel.m in Sources */,
 				2EBA90081A15253700D22F2C /* LoginViewController.m in Sources */,
 				2EBA8FA91A13170B00D22F2C /* AppDelegate.m in Sources */,
 				2EBA90101A15640100D22F2C /* bakerySystem.m in Sources */,
+				2EF1DC341A22714D0096881F /* addRecipeIngredients.m in Sources */,
 				2EBA90161A15640200D22F2C /* Recipe.m in Sources */,
 				2EBA90191A15640200D22F2C /* Ingredient.m in Sources */,
 				2EBA90131A15640200D22F2C /* Subscriber.m in Sources */,
 				2EBA901F1A17B21E00D22F2C /* Recipes.m in Sources */,
 				2EBA901C1A17B1E500D22F2C /* Subscribers.m in Sources */,
 				2EBA8FAF1A13170B00D22F2C /* ViewController.m in Sources */,
+				2E27129C1A22949100769DD4 /* Ingredients.m in Sources */,
 				2EBA8FA61A13170A00D22F2C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,7 +437,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = bakerySystem/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "bakerySystem/bakerySystem-Bridging-Header.h";
@@ -433,7 +451,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = bakerySystem/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "bakerySystem/bakerySystem-Bridging-Header.h";

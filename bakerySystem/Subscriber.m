@@ -19,5 +19,6 @@
 @dynamic twitter;
 @dynamic facebook;
 @dynamic firstN;
+@dynamic subscribs;
 
 @end

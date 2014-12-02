@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Subscriber.h"
 @interface addSubscriber : UIViewController
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *phoneTextField;
@@ -16,13 +16,14 @@
 @property (strong, nonatomic) IBOutlet UITextField *facebookTextField;
 @property (strong, nonatomic) IBOutlet UITextField *streetTextField;
 @property (strong, nonatomic) IBOutlet UITextField *twitterTextField;
+@property (strong, nonatomic) IBOutlet UITextView *subscibsText;
+
 @property (strong, nonatomic) IBOutlet UILabel *twitter;
 @property (strong, nonatomic) IBOutlet UILabel *phone;
 @property (strong, nonatomic) IBOutlet UILabel *zip;
 @property (strong, nonatomic) IBOutlet UILabel *email;
 @property (strong, nonatomic) IBOutlet UILabel *facebook;
 @property (strong, nonatomic) IBOutlet UILabel *street;
-
+@property (strong, nonatomic) Subscriber *person;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property NSString * data;
 @end
