@@ -16,6 +16,7 @@
 @dynamic amount;
 @dynamic measure_unit;
 @dynamic type;
+@dynamic firstN;
 @dynamic belong;
 
 @end

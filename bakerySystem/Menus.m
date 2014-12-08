@@ -1,16 +1,16 @@
 //
-//  UIViewController+Subscribers.m
+//  UIViewController+Menu.m
 //  bakerySystem
 //
-//  Created by 陈仁 on 11/15/14.
+//  Created by Ren Chen on 12/7/14.
 //  Copyright (c) 2014 陈仁. All rights reserved.
 //
 
-#import "Subscribers.h"
-#import "Subscriber.h"
-@interface Subscribers()<NSFetchedResultsControllerDelegate>
+#import "Menus.h"
+#import "Menu.h"
+@interface Menus()<NSFetchedResultsControllerDelegate>
 @end
-@implementation Subscribers
+@implementation Menus
 
 -(void) viewDidLoad
 {
@@ -19,18 +19,18 @@
     self.managedObjectContext = [delegate managedObjectContext];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-        NSLog(@"SubTable");
-        NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:NSStringFromClass([Subscriber class])];
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-        
-        //把排序和分组规则添加到请求中
-        [request setSortDescriptors:@[sortDescriptor]];
-        
-        //把请求的结果转换成适合tableView显示的数据
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"firstN" cacheName:nil];
-        
+    NSLog(@"MenuTable");
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:NSStringFromClass([Menu class])];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    
+    //把排序和分组规则添加到请求中
+    [request setSortDescriptors:@[sortDescriptor]];
+    
+    //把请求的结果转换成适合tableView显示的数据
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"firstN" cacheName:nil];
+    
     self.fetchedResultsController.delegate = self;
-
+    
     //执行fetchedResultsController
     NSError *error;
     if ([self.fetchedResultsController performFetch:&error]) {
@@ -40,28 +40,28 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     //参数sender是点击的对应的cell
     //判断sender是否为TableViewCell的对象
-
+    
     if ([[segue identifier] isEqualToString:@"cellTap"]) {
         //做一个类型的转换
-//        UITableViewCell *cell = (UITableViewCell *)sender;
+        //        UITableViewCell *cell = (UITableViewCell *)sender;
         
         //通过tableView获取cell对应的索引，然后通过索引获取实体对象
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
         //用frc通过indexPath来获取Person
-        Subscriber *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        Menu *menu = [self.fetchedResultsController objectAtIndexPath:indexPath];
         UIViewController *nextView = segue.destinationViewController;
         //通过KVC把参数传入目的控制器
-        [nextView setValue:person forKey:@"person"];
+        [nextView setValue:menu forKey:@"menu"];
     }
-
-
+    
+    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"cellTap" sender:indexPath];
-
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -99,15 +99,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifer = @"Cell";
-    
-      UITableViewCell  *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifer];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
+//    if(cell == nil)
+       UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifer];
     //获取实体对象
-    Subscriber *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
-   
+    Menu *menu = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     
-    cell.textLabel.text = person.name;
-    cell.detailTextLabel.text = person.phone;
+    
+    cell.textLabel.text = menu.name;
+    cell.detailTextLabel.text = menu.price;
     // Configure the cell...
     
     return cell;
@@ -123,10 +124,10 @@
     {
         //通过coreData删除对象
         //通过indexPath获取我们要删除的实体
-        Subscriber * person = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            
+        Menu * menu = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
         //通过上下文移除实体
-        [self.managedObjectContext  deleteObject:person];
+        [self.managedObjectContext  deleteObject:menu];
         
         NSError *error;
         if ([self.managedObjectContext save:&error]) {
@@ -138,7 +139,7 @@
 }
 //-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 //{
-//    
+//
 //}
 
 //当CoreData的数据正在发生改变是，FRC产生的回调
@@ -161,7 +162,7 @@
             [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
                           withRowAnimation:UITableViewRowAnimationFade];
             break;
-            default:
+        default:
             break;
     }
 }

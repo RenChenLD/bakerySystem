@@ -14,9 +14,11 @@
 @interface Ingredient : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * amount;
+@property (nonatomic, retain) NSString * amount;
 @property (nonatomic, retain) NSString * measure_unit;
 @property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSString * firstN;
+
 @property (nonatomic, retain) Recipe *belong;
 
 @end

@@ -1,0 +1,14 @@
+Use cases.
+1. User, An actor that control all the input and output.
+2. Add subscribers: Adding subscribers with the information about phone, street, zip, email, facebook or twitter.
+3. Modify subscribers: Modifying with properties.
+4. Delete subscribers: Remove data of selected subscriber.
+5. Add Recipes: Adding recipes with ingredients.
+6. Modify recipes: Modify recipe with ingredients.
+7. Delete. Removement.
+8. Add Ingredient: Adding ingredient with properties like amount, name and the unit of measurement.
+9. Modify ingredients. Modification.
+10. Delete ingredients. Removement.
+11. Add Menu items: Adding menu items with price.
+12. Modify Menu items: Modify menu items with price.
+13. Delete. Removement.

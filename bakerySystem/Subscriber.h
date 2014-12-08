@@ -20,5 +20,6 @@
 @property (nonatomic, retain) NSString * twitter;
 @property (nonatomic, retain) NSString * facebook;
 @property (nonatomic, retain) NSString * firstN;
+@property (nonatomic, retain) NSString * subscribs;
 
 @end
