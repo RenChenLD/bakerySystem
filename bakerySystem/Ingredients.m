@@ -91,7 +91,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifer = @"Cell";
+<<<<<<< HEAD
 UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifer];    
+=======
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
+    
+>>>>>>> FETCH_HEAD
     //获取实体对象
     Ingredient *ingredient = [self.fetchedResultsController objectAtIndexPath:indexPath];
     

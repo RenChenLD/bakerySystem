@@ -28,9 +28,12 @@
 		2EBA901F1A17B21E00D22F2C /* Recipes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA901E1A17B21E00D22F2C /* Recipes.m */; };
 		2EF1DC311A2254290096881F /* editRecipes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1DC301A2254290096881F /* editRecipes.m */; };
 		2EF1DC341A22714D0096881F /* addRecipeIngredients.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1DC331A22714D0096881F /* addRecipeIngredients.m */; };
+<<<<<<< HEAD
 		9FE348111A35332400A5BFF1 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE348101A35332400A5BFF1 /* Menu.m */; };
 		9FE348141A35337500A5BFF1 /* Menus.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE348131A35337500A5BFF1 /* Menus.m */; };
 		9FE348171A3534F200A5BFF1 /* addMenus.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE348161A3534F200A5BFF1 /* addMenus.m */; };
+=======
+>>>>>>> FETCH_HEAD
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,12 +88,15 @@
 		2EF1DC301A2254290096881F /* editRecipes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = editRecipes.m; sourceTree = "<group>"; };
 		2EF1DC321A22714D0096881F /* addRecipeIngredients.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addRecipeIngredients.h; sourceTree = "<group>"; };
 		2EF1DC331A22714D0096881F /* addRecipeIngredients.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addRecipeIngredients.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		9FE3480F1A35332400A5BFF1 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Menu.h; path = bakerySystem/Menu.h; sourceTree = "<group>"; };
 		9FE348101A35332400A5BFF1 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Menu.m; path = bakerySystem/Menu.m; sourceTree = "<group>"; };
 		9FE348121A35337500A5BFF1 /* Menus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menus.h; sourceTree = "<group>"; };
 		9FE348131A35337500A5BFF1 /* Menus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menus.m; sourceTree = "<group>"; };
 		9FE348151A3534F200A5BFF1 /* addMenus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addMenus.h; sourceTree = "<group>"; };
 		9FE348161A3534F200A5BFF1 /* addMenus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addMenus.m; sourceTree = "<group>"; };
+=======
+>>>>>>> FETCH_HEAD
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,16 +148,22 @@
 				2EBA901E1A17B21E00D22F2C /* Recipes.m */,
 				2E27129A1A22949100769DD4 /* Ingredients.h */,
 				2E27129B1A22949100769DD4 /* Ingredients.m */,
+<<<<<<< HEAD
 				9FE348121A35337500A5BFF1 /* Menus.h */,
 				9FE348131A35337500A5BFF1 /* Menus.m */,
+=======
+>>>>>>> FETCH_HEAD
 				2EAFBF941A1C0237005C4296 /* addSubscriber.h */,
 				2EAFBF951A1C0237005C4296 /* addSubscriber.m */,
 				2EF1DC2F1A2254290096881F /* editRecipes.h */,
 				2EF1DC301A2254290096881F /* editRecipes.m */,
 				2EF1DC321A22714D0096881F /* addRecipeIngredients.h */,
 				2EF1DC331A22714D0096881F /* addRecipeIngredients.m */,
+<<<<<<< HEAD
 				9FE348151A3534F200A5BFF1 /* addMenus.h */,
 				9FE348161A3534F200A5BFF1 /* addMenus.m */,
+=======
+>>>>>>> FETCH_HEAD
 				2EBA8FA71A13170A00D22F2C /* AppDelegate.h */,
 				2EBA8FA81A13170B00D22F2C /* AppDelegate.m */,
 				2EBA8FAD1A13170B00D22F2C /* ViewController.h */,
@@ -323,7 +335,10 @@
 				9FE348141A35337500A5BFF1 /* Menus.m in Sources */,
 				2EBA90101A15640100D22F2C /* bakerySystem.m in Sources */,
 				2EF1DC341A22714D0096881F /* addRecipeIngredients.m in Sources */,
+<<<<<<< HEAD
 				9FE348171A3534F200A5BFF1 /* addMenus.m in Sources */,
+=======
+>>>>>>> FETCH_HEAD
 				2EBA90161A15640200D22F2C /* Recipe.m in Sources */,
 				2EBA90191A15640200D22F2C /* Ingredient.m in Sources */,
 				2EBA90131A15640200D22F2C /* Subscriber.m in Sources */,

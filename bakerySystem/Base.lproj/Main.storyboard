@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Fpo-2S-ijy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Fpo-2S-ijy">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+>>>>>>> FETCH_HEAD
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -159,9 +165,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzi-la-9Jb">
+<<<<<<< HEAD
                                 <rect key="frame" x="8" y="306" width="304" height="52"/>
                                 <color key="backgroundColor" red="0.16470588743686676" green="0.92156869173049927" blue="0.9647059440612793" alpha="1" colorSpace="deviceRGB"/>
                                 <state key="normal" title="Subscribers">
+=======
+                                <rect key="frame" x="0.0" y="306" width="150" height="150"/>
+                                <state key="normal" title="Button" image="SubscribersImages">
+>>>>>>> FETCH_HEAD
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -172,9 +183,14 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="215"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yL3-Fp-fSf">
+<<<<<<< HEAD
                                 <rect key="frame" x="8" y="366" width="304" height="56"/>
                                 <color key="backgroundColor" red="0.1647058874" green="0.9215686917" blue="0.96470594409999999" alpha="1" colorSpace="deviceRGB"/>
                                 <state key="normal" title="Recipes">
+=======
+                                <rect key="frame" x="170" y="306" width="150" height="150"/>
+                                <state key="normal" title="Button" image="RecipesImages">
+>>>>>>> FETCH_HEAD
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -202,7 +218,11 @@
             </objects>
             <point key="canvasLocation" x="-21" y="154"/>
         </scene>
+<<<<<<< HEAD
         <!--Edit-->
+=======
+        <!--Edit Recipes-->
+>>>>>>> FETCH_HEAD
         <scene sceneID="Med-uN-T1w">
             <objects>
                 <viewController id="6rb-MV-AJC" customClass="editRecipes" sceneMemberID="viewController">
@@ -241,7 +261,11 @@
                             <outletCollection property="gestureRecognizers" destination="Qcp-sM-IdY" appends="YES" id="yLN-As-cik"/>
                         </connections>
                     </view>
+<<<<<<< HEAD
                     <navigationItem key="navigationItem" title="Edit" id="P7D-SU-6Is"/>
+=======
+                    <navigationItem key="navigationItem" id="P7D-SU-6Is"/>
+>>>>>>> FETCH_HEAD
                     <connections>
                         <outlet property="name" destination="QpB-gQ-hma" id="bOJ-fy-Wh9"/>
                     </connections>
@@ -649,11 +673,21 @@
         </scene>
     </scenes>
     <resources>
+<<<<<<< HEAD
         <image name="loginLogo" width="1428" height="677"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FdR-mt-ngv"/>
         <segue reference="N7g-6d-MMY"/>
         <segue reference="xRr-oh-qS3"/>
+=======
+        <image name="RecipesImages" width="220" height="229"/>
+        <image name="SubscribersImages" width="225" height="225"/>
+        <image name="loginLogo" width="1428" height="677"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="N7g-6d-MMY"/>
+        <segue reference="xRD-zs-86e"/>
+>>>>>>> FETCH_HEAD
     </inferredMetricsTieBreakers>
 </document>

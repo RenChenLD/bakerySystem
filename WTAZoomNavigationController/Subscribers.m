@@ -99,8 +99,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifer = @"Cell";
+<<<<<<< HEAD
     
       UITableViewCell  *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifer];
+=======
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
+    if(cell == nil)
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifer];
+>>>>>>> FETCH_HEAD
     //获取实体对象
     Subscriber *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
    

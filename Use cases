@@ -8,7 +8,11 @@ Use cases.
 7. Delete. Removement.
 8. Add Ingredient: Adding ingredient with properties like amount, name and the unit of measurement.
 9. Modify ingredients. Modification.
+<<<<<<< HEAD
 10. Delete ingredients. Removement.
 11. Add Menu items: Adding menu items with price.
 12. Modify Menu items: Modify menu items with price.
 13. Delete. Removement.
+=======
+10. Delete ingredients. Removement.
+>>>>>>> FETCH_HEAD

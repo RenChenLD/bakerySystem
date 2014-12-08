@@ -34,10 +34,17 @@
 - (IBAction)tapAdd:(id)sender {
     if(self.ingredient == nil)
     {
+<<<<<<< HEAD
         //获取ingredient的实体对象
         ingredient = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Ingredient class]) inManagedObjectContext:self.managedObjectContext];
     }
     //给ingredient赋值
+=======
+        //获取Subscribers的实体对象
+        ingredient = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Ingredient class]) inManagedObjectContext:self.managedObjectContext];
+    }
+    //给person赋值
+>>>>>>> FETCH_HEAD
     ingredient.name = self.name.text;
     ingredient.amount = self.amount.text;
     ingredient.measure_unit= self.unit.text;
